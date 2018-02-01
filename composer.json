@@ -1,0 +1,23 @@
+{
+    "name": "zaghyr/eloquent-dynamodb",
+    "description": "DynamoDb with Eloquent and Migrations",
+    "keywords": ["laravel", "dynamodb", "eloquent", "migrations"],
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Zaghyr",
+            "email": "gp@zaghyr.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Zaghyr\\EloquentDynamoDb\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "aws/aws-sdk-php-laravel": "~3.0",
+        "baopham/dynamodb" : "~4.2"
+    }
+}

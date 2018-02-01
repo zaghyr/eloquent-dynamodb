@@ -1,0 +1,30 @@
+<?php
+namespace Database\Migration\DynamoDB;
+
+use Zaghyr\EloquentDynamoDb\DBClient;
+
+class DummyClass extends DBClient
+{
+    public function up()
+    {
+        $this->dbClient->updateTable([
+            'TableName' => config('aws.prefix') . 'DummyTable',
+            // Code for update
+        ]);
+        $this->dbClient->waitUntil('TableExists', [
+            'TableName' => config('aws.prefix') . 'DummyTable',
+            '@waiter' => [
+                'delay' => 5,
+                'maxAttempts' => 20,
+            ],
+        ]);
+    }
+
+    /**
+     * if cannot rollback set $canRollback = false
+     */
+    public function down(&$canRollback)
+    {
+        // Code for reverse update
+    }
+}

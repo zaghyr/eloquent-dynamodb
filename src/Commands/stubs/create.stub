@@ -1,0 +1,54 @@
+<?php
+namespace Database\Migration\DynamoDB;
+
+use Zaghyr\EloquentDynamoDb\DBClient;
+
+class DummyClass extends DBClient
+{
+    public function up()
+    {
+        $this->dbClient->createTable([
+            'TableName' => config('aws.prefix') . 'DummyTable',
+            'AttributeDefinitions' => [
+                [
+                    'AttributeName' => '<string>',
+                    'AttributeType' => 'S|N|B',
+                ],
+            ],
+            'KeySchema' => [
+                [
+                    'AttributeName' => '<string>',
+                    'KeyType'       => 'HASH|RANGE',
+                ],
+            ],
+            'ProvisionedThroughput' => [
+                'ReadCapacityUnits'  => 1,
+                'WriteCapacityUnits' => 1,
+            ]
+        ]);
+        $this->dbClient->waitUntil('TableExists', [
+            'TableName' => config('aws.prefix') . 'DummyTable',
+            '@waiter' => [
+                'delay' => 5,
+                'maxAttempts' => 20,
+            ],
+        ]);
+    }
+
+    /**
+     * if cannot rollback set $canRollback = false
+     */
+    public function down(&$canRollback)
+    {
+        $this->dbClient->deleteTable([
+            'TableName' => config('aws.prefix') . 'DummyTable',
+        ]);
+        $this->dbClient->waitUntil('TableNotExists', [
+            'TableName' => config('aws.prefix') . 'DummyTable',
+            '@waiter' => [
+                'delay' => 5,
+                'maxAttempts' => 20,
+            ],
+        ]);
+    }
+}
