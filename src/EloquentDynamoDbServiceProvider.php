@@ -10,7 +10,7 @@ use QuanKim\LaravelDynamoDBMigrations\Commands\Reset;
 use QuanKim\LaravelDynamoDBMigrations\Commands\Rollback;
 use QuanKim\LaravelDynamoDBMigrations\Commands\Seed;
 
-class DynamoDBMigrationServiceProvider extends ServiceProvider
+class EloquentDynamoDbServiceProvider extends ServiceProvider
 {
     protected $commands = [
         MakeMigration::class,

@@ -1,9 +1,9 @@
-# Laravel Package: Migrations for DynamoDB 
+# Laravel / Lumen Package: Eloquent for DynamoDB
 
 # Install
 * Composer install
-```bash 
-composer require quankim/laravel-dynamodb-migrations
+```bash
+composer require zaghyr/eloquent-dynamodb
 ```
 
 * Install service provider
@@ -12,7 +12,7 @@ composer require quankim/laravel-dynamodb-migrations
 // config/app.php
     'providers' => [
         ...
-        QuanKim\LaravelDynamoDBMigrations\DynamoDBMigrationServiceProvider::class
+        Zaghyr\EloquentDynamoDbServiceProvider::class
         ...
     ];
 ```
@@ -20,9 +20,9 @@ composer require quankim/laravel-dynamodb-migrations
 ```php
 // config/aws.php
     use Aws\Laravel\AwsServiceProvider;
-    
+
     return [
-    
+
         /*
         |--------------------------------------------------------------------------
         | AWS SDK Configuration
@@ -47,6 +47,7 @@ composer require quankim/laravel-dynamodb-migrations
         'endpoint' => env('AWS_ENDPOINT', ''),
         'http' => [
             'verify' => false,
-        ]
+        ],
+        'migrations-table' => env('DYNAMODB_MIGRATIONS_TABLE', 'migrations')
     ];
 ```
