@@ -2,13 +2,13 @@
 namespace Zaghyr\EloquentDynamoDb;
 
 use Illuminate\Support\ServiceProvider;
-use QuanKim\LaravelDynamoDBMigrations\Commands\MakeMigration;
-use QuanKim\LaravelDynamoDBMigrations\Commands\MakeModel;
-use QuanKim\LaravelDynamoDBMigrations\Commands\MakeSeed;
-use QuanKim\LaravelDynamoDBMigrations\Commands\Migrate;
-use QuanKim\LaravelDynamoDBMigrations\Commands\Reset;
-use QuanKim\LaravelDynamoDBMigrations\Commands\Rollback;
-use QuanKim\LaravelDynamoDBMigrations\Commands\Seed;
+use Zaghyr\EloquentDynamoDb\Commands\MakeMigration;
+use Zaghyr\EloquentDynamoDb\Commands\MakeModel;
+use Zaghyr\EloquentDynamoDb\Commands\MakeSeed;
+use Zaghyr\EloquentDynamoDb\Commands\Migrate;
+use Zaghyr\EloquentDynamoDb\Commands\Reset;
+use Zaghyr\EloquentDynamoDb\Commands\Rollback;
+use Zaghyr\EloquentDynamoDb\Commands\Seed;
 
 class EloquentDynamoDbServiceProvider extends ServiceProvider
 {
