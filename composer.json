@@ -15,7 +15,6 @@
             "Zaghyr\\EloquentDynamoDb\\": "src/"
         }
     },
-    "minimum-stability": "dev",
     "require": {
         "aws/aws-sdk-php-laravel": "~3.0",
         "baopham/dynamodb" : "~4.2"

@@ -22,8 +22,8 @@ class DBClient
                 'verify' => config('aws.http.verify'),
             ]
         ];
-        if (config('aws.endpoint')) {
-            $config['endpoint'] = config('aws.endpoint');
+        if (config('aws.DynamoDb.endpoint')) {
+            $config['endpoint'] = config('aws.DynamoDb.endpoint');
         }
 
         return DynamoDbClient::factory($config);
