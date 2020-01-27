@@ -17,6 +17,6 @@
     },
     "require": {
         "aws/aws-sdk-php-laravel": "~3.0",
-        "baopham/dynamodb" : "~4.2"
+        "baopham/dynamodb" : "~4.2 || ^5.0"
     }
 }
